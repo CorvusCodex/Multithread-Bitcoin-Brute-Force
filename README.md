@@ -1,1 +1,1 @@
-# Multithread-Bitcoid-Brute-Force
+# Multithread-Bitcoin-Brute-Force
