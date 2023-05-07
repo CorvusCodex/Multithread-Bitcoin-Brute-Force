@@ -1,4 +1,4 @@
-# Multithread-Bitcoin-Brute-Force
+# Multithread Bitcoin Brute Force
 
 
 This is a Node.js script that uses multiple worker processes to generate random private keys for Bitcoin wallets and check if they match any of the addresses in a file named `data.txt`. If a match is found, the wallet address and its private key are saved to a file named `match.txt`.
