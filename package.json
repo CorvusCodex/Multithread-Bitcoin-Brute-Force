@@ -1,0 +1,23 @@
+{
+  "name": "bitcoin-legacy-brute-force",
+  "version": "1.4.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CorvusCodex/Multithread-Bitcoin-Brute-Force.git"
+  },
+  "author": "CorvusCodex",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CorvusCodex/Multithread-Bitcoin-Brute-Force/issues"
+  },
+  "homepage": "https://github.com/CorvusCodex/Multithread-Bitcoin-Brute-Force#readme",
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "coinkey": "^3.0.0"
+  }
+}
