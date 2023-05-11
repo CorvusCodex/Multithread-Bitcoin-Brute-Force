@@ -1,5 +1,5 @@
 {
-  "name": "bitcoin-legacy-brute-force",
+  "name": "multithread-bitcoin-legacy-brute-force",
   "version": "1.4.0",
   "description": "",
   "main": "app.js",
