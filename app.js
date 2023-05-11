@@ -1,6 +1,6 @@
 "use strict";
 
-process.title = "Bitcoin Bruteforce";
+process.title = "Multithread-Bitcoin-Brute-Force by Corvus Codex";
 
 //Creaded by: Corvus Codex
 //Github: https://github.com/CorvusCodex/
