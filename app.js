@@ -1,6 +1,6 @@
 "use strict";
 
-process.title = "Multithread-Bitcoin-Brute-Force by Corvus Codex";
+process.title = "Multithread Bitcoin Brute Force by Corvus Codex";
 
 //Creaded by: Corvus Codex
 //Github: https://github.com/CorvusCodex/
@@ -36,6 +36,9 @@ data.toString().split("\n").forEach(address => {
 
 // Initializing an object to store counts for each worker
 let counts = {};
+let recentKeys = [];
+let startTime = Date.now();
+let lastRecentKeysUpdate = Date.now();
 
 // Function to generate a private key and check if the corresponding public address is in the Set of addresses
 function generate() {
@@ -73,58 +76,63 @@ function generate() {
 
 // Checking if the current process is the master process
 if (cluster.isMaster) {
- // Creating a blessed screen object
- let screen = blessed.screen({
- smartCSR: true
- });
+    let screen = blessed.screen({
+        smartCSR: true
+    });
 
- // Initializing an array to store boxes for each worker
- let boxes = [];
+    let boxes = [];
 
- // Looping through each CPU and creating a box for each worker
- for (let i = 0; i < numCPUs; i++) {
- let box = blessed.box({
- top: `${i * 100/numCPUs}%`,
- left: 0,
- width: '100%',
- height: `${100/numCPUs}%`,
- content: `Worker ${i+1} Loop count: 0`,
- border: {
- type: 'line'
- },
- style: {
- border: {
- fg: 'blue'
- }
- }
- });
- screen.append(box);
- boxes.push(box);
- }
+    for (let i = 0; i < numCPUs; i++) {
+        let box = blessed.box({
+            top: `${i * 100/numCPUs}%`,
+            left: 0,
+            width: '100%',
+            height: `${100/numCPUs}%`,
+            content: `Worker ${i+1} Keys generated: 0 Speed: 0 keys/min`,
+            border: {
+                type: 'line'
+            },
+            style: {
+                fg: 'green',
+                border: {
+                    fg: 'green'
+                }
+            }
+        });
+        screen.append(box);
+        boxes.push(box);
+    
+    }
 
- // Rendering the screen
- screen.render();
+ 
 
- // Listening for messages from worker processes
- cluster.on('message', (worker, message) => {
- if (message.counts) {
- for (let workerId in message.counts) {
- boxes[workerId-1].setContent(`Worker ${workerId} Loop count: ${message.counts[workerId]}`);
- }
- screen.render();
- }
- });
+    cluster.on('message', (worker, message) => {
+        if (message.counts) {
+            for (let workerId in message.counts) {
+                let elapsedTimeInMinutes = (Date.now() - startTime) / 60000;
+                let speedPerMinute = message.counts[workerId] / elapsedTimeInMinutes;
+                boxes[workerId-1].setContent(`Worker ${workerId} Keys generated: ${message.counts[workerId]} Speed: ${speedPerMinute.toFixed(2)} keys/min`);
+            }
+            screen.render();
+        }
+        if (message.recentKeys) {
+            let content = `Recent keys:\n`;
+            message.recentKeys.forEach(key => {
+                content += `Address: ${key.address} Private key:${key.privateKey}\n`;
+            });
+            recentKeysBox.setContent(content);
+            screen.render();
+        }
+    });
 
- // Forking worker processes for each CPU
- for (let i = 0; i < numCPUs; i++) {
- cluster.fork();
- }
+    // Fork workers.
+    for (let i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
 
- // Listening for exit event of worker processes
- cluster.on('exit', (worker, code, signal) => {
- console.log(`worker ${worker.process.pid} died`);
- });
+    cluster.on('exit', (worker, code, signal) => {
+        console.log(`worker ${worker.process.pid} died`);
+    });
 } else {
- // Setting an interval to run the generate function repeatedly with no delay
- setInterval(generate, 0);
+    setInterval(generate, 0);
 }
