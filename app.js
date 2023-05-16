@@ -29,7 +29,7 @@ data.toString().split("\n").forEach(address => {
     if (address.startsWith('1')) {
         addresses.add(address);
     } else {
-        console.error('Error: addresses are not in correct format. Addresses must start with 1');
+        console.error('Error: addresses are not in correct format. Legacy Bitcoin Addresses must start with 1');
         process.exit(1);
     }
 });
