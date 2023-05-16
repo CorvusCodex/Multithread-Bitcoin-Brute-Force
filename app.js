@@ -22,11 +22,17 @@ const blessed = require('blessed');
 // Initializing a Set to store addresses
 let addresses;
 addresses = new Set();
-
 // Reading data from a file named 'data.txt'
 const data = fs.readFileSync('./data.txt');
 // Splitting the data by new line and adding each address to the Set
-data.toString().split("\n").forEach(address => addresses.add(address));
+data.toString().split("\n").forEach(address => {
+    if (address.startsWith('1')) {
+        addresses.add(address);
+    } else {
+        console.error('Error: addresses are not in correct format. Addresses must start with 1');
+        process.exit(1);
+    }
+});
 
 // Initializing an object to store counts for each worker
 let counts = {};
