@@ -53,7 +53,7 @@ function generate() {
  // Creating a CoinKey object using the private key
  let ck = new CoinKey(Buffer.from(privateKeyHex, 'hex'));
 
- // Setting the compressed property of the CoinKey object to false
+ // Setting the compressed property of the CoinKey object to false (set false for uncompressed or set true for compressed Bitcoin Addresses)
  ck.compressed = false;
 
  // Checking if the public address corresponding to the private key is in the Set of addresses
