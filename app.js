@@ -2,7 +2,7 @@
 
 process.title = "Multithread Bitcoin Brute Force by Corvus Codex";
 
-//Creaded by: Corvus Codex
+//Created by: Corvus Codex
 //Github: https://github.com/CorvusCodex/
 //Licence : MIT License
 
@@ -29,7 +29,7 @@ data.toString().split("\n").forEach(address => {
     if (address.startsWith('1')) {
         addresses.add(address);
     } else {
-        console.error('Error: addresses are not in correct format. Legacy Bitcoin Addresses must start with 1');
+        console.error('Error: Addresses are not in correct format. Legacy Bitcoin Addresses must start with 1');
         process.exit(1);
     }
 });
@@ -53,7 +53,7 @@ function generate() {
  // Creating a CoinKey object using the private key
  let ck = new CoinKey(Buffer.from(privateKeyHex, 'hex'));
 
- // Setting the compressed property of the CoinKey object to false (set false for uncompressed or set true for compressed Bitcoin Addresses)
+ // Setting the compressed property of the CoinKey object to false
  ck.compressed = false;
 
  // Checking if the public address corresponding to the private key is in the Set of addresses
@@ -77,18 +77,46 @@ function generate() {
 // Checking if the current process is the master process
 if (cluster.isMaster) {
     let screen = blessed.screen({
-        smartCSR: true
+        smartCSR: true,
+  top: '100%',
+  width: '100%'
+        
     });
+    
 
     let boxes = [];
 
+    let infoBox = blessed.box({
+        top: '0%',
+        left: 0,
+        width: '100%',
+        height: '30%',
+        content: `//Created by: Corvus Codex
+//Github: https://github.com/CorvusCodex/
+//Licence : MIT License
+//Support my work:
+//BTC: bc1q7wth254atug2p4v9j3krk9kauc0ehys2u8tgg3
+//ETH & BNB: 0x68B6D33Ad1A3e0aFaDA60d6ADf8594601BE492F0
+//Buy me a coffee: https://www.buymeacoffee.com/CorvusCodex`,
+        border: {
+          type: 'line'
+        },
+        style: {
+          fg: 'green',
+          border: {
+            fg: 'green'
+          }
+        }
+      });
+      
+
     for (let i = 0; i < numCPUs; i++) {
         let box = blessed.box({
-            top: `${i * 100/numCPUs}%`,
-            left: 0,
-            width: '100%',
-            height: `${100/numCPUs}%`,
-            content: `Worker ${i+1} Keys generated: 0 Speed: 0 keys/min`,
+            top: `${30 + i * 50/numCPUs}%`,
+    left: 0,
+    width: '100%',
+    height: `${40/numCPUs}%`,
+    content: `Worker ${i+1} Keys generated: 0 Speed: 0 keys/min`,
             border: {
                 type: 'line'
             },
@@ -99,8 +127,10 @@ if (cluster.isMaster) {
                 }
             }
         });
+        screen.append(infoBox);
         screen.append(box);
         boxes.push(box);
+        
     
     }
 
