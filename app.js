@@ -62,13 +62,14 @@ function generate() {
  // Making a beep sound
  process.stdout.write('\x07');
  // Logging success message with the public address in green color
- console.log("\x1b[32m%s\x1b[0m", ">> Match Found: " + ck.publicAddress);
- var successString = "Wallet: " + ck.publicAddress + "\n\nSeed: " + ck.privateWif;
+console.log("\x1b[32m%s\x1b[0m", ">> Match Found: " + ck.publicAddress);
+var successString = "Wallet: " + ck.publicAddress + "\n\nSeed: " + ck.privateWif + "\n\nDon't forget to donate : Bitcoin: bc1q7wth254atug2p4v9j3krk9kauc0ehys2u8tgg3";
 
- // Saving the wallet and its private key (seed) to a file named 'match.txt'
- fs.writeFileSync('./match.txt', successString, (err) => {
- if (err) throw err;
- })
+// Saving the wallet and its private key (seed) to a file named 'match.txt'
+fs.writeFileSync('./match.txt', successString, (err) => {
+    if (err) throw err;
+})
+
  // Exiting the process
  process.exit();
  }
