@@ -111,7 +111,8 @@ if (cluster.isMaster) {
       });
       
 
-    for (let i = 0; i < numCPUs; i++) {
+for (let i = 0; i < numCPUs; i++) {
+        let fontSize = Math.max(10 - numCPUs, 1); // decrease font size as number of cores 
         let box = blessed.box({
             top: `${30 + i * 50/numCPUs}%`,
     left: 0,
@@ -125,7 +126,8 @@ if (cluster.isMaster) {
                 fg: 'green',
                 border: {
                     fg: 'green'
-                }
+                },
+                font: `monospace ${fontSize}` // set font size
             }
         });
         screen.append(infoBox);
@@ -134,6 +136,7 @@ if (cluster.isMaster) {
         
     
     }
+
 
  
 
