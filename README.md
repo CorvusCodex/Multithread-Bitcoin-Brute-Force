@@ -5,6 +5,10 @@ This is a Node.js script that uses multiple worker processes to generate random 
 
 ## For people without technical experience you can buy the compiled application for windows from here:
 https://www.buymeacoffee.com/CorvusCodex/e/142988
+Keep in mind that a Windows app won’t speed up searching or guarantee success.
+
+Check out my Bitcoin Brute-Force calculator
+https://corvuscodex.github.io/Bitcoin-Brute-Force-Calculator-Website/
 
 ## Requirements
 
