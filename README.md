@@ -1,5 +1,8 @@
-# Multithread Bitcoin Brute Force for P2PKH or legacy address
+<p align="center">
+  <img src="https://github.com/CorvusCodex/Multithread-Bitcoin-Brute-Force/blob/main/multithread%20bitcoin%20bruteforce%20script.png?raw=true">
+</p>
 
+# Multithread Bitcoin Brute Force for P2PKH or legacy address
 
 This is a Node.js script that uses multiple worker processes to generate random private keys for Bitcoin P2PKH or legacy wallets in hexadecimal format and check if they match any of the P2PKH or legacy addresses in a file named `data.txt`. If a match is found,  the script saves the wallet and its private key (seed) in WIF format to a file named ‘match.txt’ and quits program.
 
