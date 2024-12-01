@@ -28,7 +28,7 @@ function credit(){
     console.log("BTC: bc1q7wth254atug2p4v9j3krk9kauc0ehys2u8tgg3");
     console.log("ETH & BNB: 0x68B6D33Ad1A3e0aFaDA60d6ADf8594601BE492F0");
     console.log("Buy me a coffee: https://www.buymeacoffee.com/CorvusCodex");
-    console.log("Buy standalone Windows app: https://www.buymeacoffee.com/CorvusCodex/e/142988");
+    console.log("Buy standalone Windows app: https://ko-fi.com/s/e059759b3b");
     console.log("===========================================================");
   
   };
