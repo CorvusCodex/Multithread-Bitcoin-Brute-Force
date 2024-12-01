@@ -8,7 +8,7 @@ This is a Node.js script that uses multiple worker processes to generate random 
 
 ## For people without technical experience you can buy the compiled application for windows from here:
 
-https://ko-fi.com/s/36307ffb03
+https://ko-fi.com/s/e059759b3b
 
 
 Keep in mind that a Windows app won’t speed up searching or guarantee success.
