@@ -57,8 +57,6 @@ https://github.com/CorvusCodex/Multithread-Ethereum-Brute-Force
 ## Support my work for month or year so i can continue to work on my projects:
 https://www.buymeacoffee.com/corvuscodex/membership
 
-## Buy me some equipment:
-https://www.buymeacoffee.com/corvuscodex/wishlist
 
 ## Disclaimer
 
