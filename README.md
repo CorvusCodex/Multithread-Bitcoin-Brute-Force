@@ -65,7 +65,7 @@ The code within this repository comes with no guarantee, the use of this code is
 
 MIT License
 
-Copyright (c) 2024 CorvusCodex
+Copyright (c) 2025 CorvusCodex
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
