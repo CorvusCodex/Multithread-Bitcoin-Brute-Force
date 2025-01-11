@@ -19,6 +19,27 @@ const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 const blessed = require('blessed');
 
+function credit(){
+  console.log("=================================================================");
+  console.log("Created by: Corvus Codex");
+  console.log("Github: https://github.com/CorvusCodex/");
+  console.log("Licence : MIT License");
+  console.log("=================================================================");
+  console.log("Support my work:");
+  console.log("BTC: bc1q7wth254atug2p4v9j3krk9kauc0ehys2u8tgg3");
+  console.log("ETH & BNB: 0x68B6D33Ad1A3e0aFaDA60d6ADf8594601BE492F0");
+  console.log("SOL: FsX3CsTFkRjzne2KiD8gjw3PEW2bYqezKfydAP55BVj7");
+  console.log("Buy me a coffee: https://www.buymeacoffee.com/CorvusCodex");
+  console.log("Buy standalone Windows app: https://ko-fi.com/s/e059759b3b");
+  console.log("=================================================================");
+
+};
+
+
+console.clear();
+  credit();
+
+
 // Initializing a Set to store addresses
 let addresses;
 addresses = new Set();
