@@ -13,7 +13,7 @@ https://ko-fi.com/s/e059759b3b
 ----
 
 Check out my Bitcoin Brute-Force calculator
-https://corvuscodex.github.io/Bitcoin-Brute-Force-Calculator-Website/
+https://corvuscodex.github.io/Bitcoin-Brute-Force-Calculator-Website/ 
 
 
 
