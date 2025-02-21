@@ -11,7 +11,7 @@ process.title = "Multithread Bitcoin Brute Force by Corvus Codex";
 //ETH & BNB: 0x68B6D33Ad1A3e0aFaDA60d6ADf8594601BE492F0
 //Buy me a coffee: https://www.buymeacoffee.com/CorvusCodex
 
-// Importing required modules
+
 const CoinKey = require('coinkey');
 const fs = require('fs');
 const crypto = require('crypto');
